@@ -3,9 +3,11 @@
 class Map
 {
 private:
-	char map[game_const::height][game_const::width];
+	char map_[game_const::height][game_const::width];
 public:
-	void init();
+	Map();
+	~Map();
+	
 	void draw();
 };
 

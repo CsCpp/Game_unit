@@ -2,12 +2,16 @@
 class Player
 {
 private:
-	int x;
-	int y;
-	float  health;
-	int armor;
-	int damage;
+	int x_;
+	int y_;
+	float  health_;
+	int armor_;
+	int damage_;
 public:
+	~Player();
+	Player();
+	Player(int x, int y);
+	Player(int x, int y, int armor, int damage, float health);
 	void setX(int x);
 	int getX() const;
 	void setY(int y);
