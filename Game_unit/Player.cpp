@@ -9,19 +9,30 @@ Player::~Player()
 
 Player::Player(): x_(0), y_(0), armor_(0), damage_(0), health_(0)
 {
-	std::cout << "------ Player was created! ------\t" << this << std::endl;
+	std::cout << "------ Player was created by Default construct! ------\t" << this << std::endl;
 
+}
+
+Player::Player(const Player& copy)
+{
+	std::cout << "------ Player was created by copy construct ------\t" << this << " from "<< &copy << std::endl;
+	this->armor_ = copy.getArmor();
+	this->damage_ = copy.getDamage();
+	this->health_ = copy.getHealth();
+	this->x_ = copy.getX();
+	this->y_ = copy.getY();
 }
 
 Player::Player(int x, int y):
 x_(x), y_(y), armor_(100), damage_(100), health_(100)
 {
+	std::cout << "------ Player was created by construct with params! ------\t" << this << std::endl;
 }
 
 Player::Player(int x, int y, int armor, int damage, float health):
 	x_(x), y_(y), armor_(armor), damage_(damage), health_(health)
 {
-	std::cout << "------ Player was created! ------\t" << this << std::endl;
+	std::cout << "------ Player was created by construct with params! ------\t" << this << std::endl;
 }
 
 void Player::setX(int x)
@@ -76,7 +87,7 @@ float Player::getHealth() const
 
 void Player::info()
 {
-	std::cout << "************************INFO************************" <<std::endl;
+	std::cout << "************************ INFO about "<<this<<" ************************" <<std::endl;
 	std::cout << "Position X: "<<this->x_ << std::endl;
 	std::cout << "Position Y: "<<this->y_ << std::endl;
 	std::cout << "Health: "<<this->health_ << std::endl;

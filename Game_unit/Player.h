@@ -10,6 +10,7 @@ private:
 public:
 	~Player();
 	Player();
+	Player(const Player& copyFrom);
 	Player(int x, int y);
 	Player(int x, int y, int armor, int damage, float health);
 	void setX(int x);

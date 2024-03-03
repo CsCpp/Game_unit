@@ -3,8 +3,12 @@
 #include "Player.h"
 #include "Map.h"
 
-
 using namespace std;
+
+void example(Player player)
+{
+    player.info();
+}
 
 
 int main()
@@ -14,6 +18,9 @@ int main()
     Player pl2 = Player{};
     Player pl3{ 3, 4, 34, 65, 122 };
     Player pl4{ 7, 5 };
+    example(pl3);
+    Player pl5 = Player(pl3);
+    pl5.info();
     {
         Player player;
         player.setX(5);
