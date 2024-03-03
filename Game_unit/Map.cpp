@@ -2,8 +2,9 @@
 #include "Map.h"
 #include <iostream>
 
-Map::Map()
+Map::Map(Player player) : player_(player)
 {
+	
 	std::cout << "------ MAP was created! ------\t" << this << std::endl;
 	for (int i = 0; i < game_const::height; ++i) {
 		for (int j = 0; j < game_const::width; ++j)

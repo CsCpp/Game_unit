@@ -1,11 +1,13 @@
 #pragma once
 #include "game_const.h"
+#include"Player.h"
 class Map
 {
 private:
 	char map_[game_const::height][game_const::width];
+	Player player_;
 public:
-	Map();
+	Map(Player player);
 	~Map();
 	
 	void draw();
