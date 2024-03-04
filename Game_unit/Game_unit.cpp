@@ -10,18 +10,12 @@ using namespace std;
 
 int main()
 {
-    
-    Player pl1 = Player();
-   
-   
-    pl1.info();
-   
+    Map map{ nullptr }; 
 
-    Map map{pl1};
-  
+    Player pl1{ 3,4,100,80,100 };
+    map.setPlayer(&pl1);
     map.draw();
-    std::cout << "Player size \t" << sizeof(Player) << std::endl;
-    std::cout << "Map size \t" << sizeof(Map) << std::endl;
+
   
     return 0;
 }
