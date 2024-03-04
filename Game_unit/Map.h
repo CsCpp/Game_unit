@@ -10,8 +10,6 @@ private:
 	Player* player_;
 public:
 	Map(Player* player);
-	~Map();
-	void setPlayer(Player* player);
 	void draw();
 };
 

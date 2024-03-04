@@ -1,21 +1,19 @@
 #include "Player.h"
 #include <iostream>
+#include "game_const.h"
 #pragma once
 
-Player::~Player()
-{
-	std::cout << "------ Player was destroyed! ------\t" << this << std::endl;
-}
+
 
 Player::Player(): x_(0), y_(0), armor_(0), damage_(0), health_(0)
 {
-	std::cout << "------ Player was created by Default construct! ------\t" << this << std::endl;
+	
 
 }
 
 Player::Player(const Player& copy)
 {
-	std::cout << "------ Player was created by copy construct ------\t" << this << " from "<< &copy << std::endl;
+	
 	this->armor_ = copy.getArmor();
 	this->damage_ = copy.getDamage();
 	this->health_ = copy.getHealth();
@@ -26,13 +24,13 @@ Player::Player(const Player& copy)
 Player::Player(int x, int y):
 x_(x), y_(y), armor_(100), damage_(100), health_(100)
 {
-	std::cout << "------ Player was created by construct with params! ------\t" << this << std::endl;
+	
 }
 
 Player::Player(int x, int y, int armor, int damage, float health):
 	x_(x), y_(y), armor_(armor), damage_(damage), health_(health)
 {
-	std::cout << "------ Player was created by construct with params! ------\t" << this << std::endl;
+	
 }
 
 void Player::setX(int x)
@@ -93,4 +91,20 @@ void Player::info()
 	std::cout << "Health: "<<this->health_ << std::endl;
 	std::cout << "Armor: " <<this->armor_ << std::endl;
 	std::cout << "Damage: "<<this->damage_ << std::endl;
+}
+
+void Player::Move(char keyPr)
+{
+	if	(keyPr == 'w' && this->x_ > 1) this->x_--;
+	else if 
+		(keyPr == 's' && this->x_ < (game_const::height-2)) this->x_++;
+	else if
+		(keyPr == 'd' && this->x_ < (game_const::width - 2)) this->y_++;
+	else if
+		(keyPr == 'a' && this->y_ >1) this->y_--;
+	
+	
+
+
+
 }

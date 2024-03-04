@@ -8,7 +8,7 @@ private:
 	int armor_;
 	int damage_;
 public:
-	~Player();
+	
 	Player();
 	Player(const Player& copyFrom);
 	Player(int x, int y);
@@ -28,5 +28,7 @@ public:
 	float getHealth() const;
 
 	void info();
+
+	void Move(char);
 };
 

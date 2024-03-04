@@ -4,12 +4,6 @@
 
 Map::Map(Player* player) : player_(player)
 {	
-	if(player_!=nullptr)
-		player_->info(); //*
-	//player_.info();//&
-	
-	
-	std::cout << "------ MAP was created! ------\t" << this << std::endl;
 	for (int i = 0; i < game_const::height; ++i) {
 		for (int j = 0; j < game_const::width; ++j)
 		{
@@ -20,26 +14,22 @@ Map::Map(Player* player) : player_(player)
 	}
 }
 
-Map::~Map()
-{
-	std::cout << "------ MAP was destroyed! ------\t" << this << std::endl;
-}
-
-void Map::setPlayer(Player* player)
-{
-	player_ = player;
-}
-
-
-
 void Map::draw()
 {
-	if (player_ != nullptr)
-		player_->info(); //*
+	
 	for (int i = 0; i < game_const::height; ++i) {
 		for (int j = 0; j < game_const::width; ++j)
 		{
-			std::cout << map_[i][j];
+			if (this->player_->getX() == i && this->player_->getY() == j)
+			{
+				std::cout << 'P';
+			}
+			else
+			{
+				std::cout << map_[i][j];
+			}
+
+			
 		}
 		std::cout << std::endl;
 	}
