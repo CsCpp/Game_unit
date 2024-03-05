@@ -1,20 +1,27 @@
 ﻿#include "Game.h"
 #include <iostream>
 
-void counter()
-{
-    static int log = 0;
-    log++;
-    std::cout << log << std::endl;
-}
+class Person {
+private:
+    static int count;
+public:
+    Person() {
+        count++;
+    }
+    static int getCount() {
+        return count;
+    }
+};
+
+int Person::count{};
 
 int main()
 {
-    counter();
-    counter();
-    counter();
-   
-    counter();
+    Person person1;
+    Person person2;
+    Person person3;
+
+    std::cout << Person::getCount();
 
     //Game game;
     //game.Run();
