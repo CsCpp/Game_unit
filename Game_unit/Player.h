@@ -30,5 +30,7 @@ public:
 	void info();
 
 	void Move(char);
+	void attack(Player* enemy);
+	bool isEnemyArownd(Player* enemy);
 };
 

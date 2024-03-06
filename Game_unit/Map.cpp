@@ -2,7 +2,7 @@
 #include "Map.h"
 #include <iostream>
 
-Map::Map(Player* player) : player_(player)
+Map::Map(Player* player, Player* enemy) : player_(player), enemy_(enemy)
 {	
 	for (int i = 0; i < game_const::height; ++i) {
 		for (int j = 0; j < game_const::width; ++j)
@@ -23,6 +23,10 @@ void Map::draw()
 			if (this->player_->getX() == i && this->player_->getY() == j)
 			{
 				std::cout << 'P';
+			}
+			else if (this->enemy_->getX() == i && this->enemy_->getY() == j)
+			{
+				std::cout << 'E';
 			}
 			else
 			{

@@ -8,8 +8,9 @@ private:
 	// Player player_;
 	//Player& player_;
 	Player* player_;
+	Player* enemy_;
 public:
-	Map(Player* player);
+	Map(Player* player, Player* enemy);
 	void draw();
 };
 

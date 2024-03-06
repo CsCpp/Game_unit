@@ -55,6 +55,11 @@ int Player::getY() const
 
 void Player::setArmor(int armor)
 {
+	if (armor < 0)
+	{
+		this->armor_ = 0;
+		return;
+	}
 	this->armor_ = armor;
 }
 
@@ -65,6 +70,11 @@ int Player::getArmor() const
 
 void Player::setDamage(int damage)
 {
+	if (damage < 0)
+	{
+		this->damage_ = 0;
+		return;
+	}
 	this->damage_ = damage;
 }
 
@@ -75,6 +85,11 @@ int Player::getDamage() const
 
 void Player::setHealth(float health)
 {
+	if (health < 0)
+	{
+		this->health_ = 0;
+		return;
+	}
 	this->health_ = health;
 }
 
@@ -103,8 +118,27 @@ void Player::Move(char keyPr)
 	else if
 		(keyPr == 'a' && this->y_ >1) this->y_--;
 	
+}
+
+void Player::attack(Player* enemy)
+{
+	if (!this->isEnemyArownd(enemy)) return;
 	
+		float demageCf = static_cast<float>(this->damage_) * 40 / 100;
+		float armorCf = static_cast<float>(enemy->getArmor()) * 20 / 100;
 
+		float decHealth = demageCf - armorCf;
+		if (decHealth <= 0) decHealth = 1;
 
+		enemy->setHealth(enemy->getHealth() - decHealth);
+		enemy->setArmor(enemy->getArmor() - decHealth / 2);
+		enemy->setDamage(enemy->getDamage() - decHealth / 3);
+	
+}
 
+bool Player::isEnemyArownd(Player* enemy)
+{
+	return(this->x_ - 1 == enemy->getX() || this->x_ == enemy->getX() || this->x_ + 1 == enemy->getX()) &&
+		(this->y_ - 1 == enemy->getY() || this->y_ == enemy->getY() || this->y_ + 1 == enemy->getY());
+	
 }
