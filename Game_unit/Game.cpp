@@ -1,7 +1,9 @@
 #include "Game.h"
 #include <stdlib.h>
 #include<iostream>
+#include <stdio.h>
 #include <conio.h>
+//#include <wchar.h>
 #include<windows.h>  
 
 Game::Game() :
@@ -24,13 +26,25 @@ void Game::Run()
 		this->enemy_.info();
 		this->map_.draw();
 		std::cout << "Pleas enter your direction (w, s, a, d): ";
-		direction = _getch();
+		if (_kbhit())
+		{
+			direction = _getch();
+			if (direction == 'e')
+			{
+				this->player_.attack(&this->enemy_);
+			}
+			
+			this->player_.Move(direction);
+
+		}
+		
+		direction = this->enemy_.getRandomSet();
 		if (direction == 'e')
 		{
-			this->player_.attack(&this->enemy_);
+			this->enemy_.attack(&this->player_);
 		}
-		//std::cin >> direction;
-		this->player_.Move(direction);
+		
+		this->enemy_.Move(direction);
 
 	
 	

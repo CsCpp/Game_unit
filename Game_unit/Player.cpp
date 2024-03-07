@@ -142,3 +142,11 @@ bool Player::isEnemyArownd(Player* enemy)
 		(this->y_ - 1 == enemy->getY() || this->y_ == enemy->getY() || this->y_ + 1 == enemy->getY());
 	
 }
+
+char Player::getRandomSet()
+{
+	
+	int i = rand() % 5;
+	char randChar []  = { 'e','w','s','a','d' };
+	return randChar[i];
+}

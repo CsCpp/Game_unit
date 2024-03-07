@@ -32,5 +32,6 @@ public:
 	void Move(char);
 	void attack(Player* enemy);
 	bool isEnemyArownd(Player* enemy);
+	char getRandomSet();
 };
 
