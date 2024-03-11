@@ -1,6 +1,7 @@
 #pragma once
 #include "game_const.h"
 #include"Player.h"
+#include "Apple.h"
 class Map
 {
 private:
@@ -9,8 +10,9 @@ private:
 	//Player& player_;
 	Player* player_;
 	Player* enemy_;
+	Apple* apple_;
 public:
-	Map(Player* player, Player* enemy);
+	Map(Player* player, Player* enemy, Apple* apple_);
 	void draw();
 };
 

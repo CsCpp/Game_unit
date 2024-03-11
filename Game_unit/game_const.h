@@ -1,8 +1,8 @@
 #pragma once
 namespace game_const 
 {
-	const int width = 60;
-	const int height = 20;
+	const int width = 20;
+	const int height = 10;
 
 
 

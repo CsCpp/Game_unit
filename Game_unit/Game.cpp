@@ -9,7 +9,8 @@
 Game::Game() :
 	player_(Player{4,2,100,100,100}),
 	enemy_(Player{ 9,9,100,100,100 }),
-	map_(&this->player_, &this->enemy_)
+	apple_(Apple{2,2,100}),
+	map_(&this->player_, &this->enemy_,&this->apple_)
 {
 
 }
